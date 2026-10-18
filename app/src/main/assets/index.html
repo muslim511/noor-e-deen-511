@@ -7,143 +7,72 @@
 <title>Noor-e-Deen</title>
 <style>
 :root{--green:#08744f;--dark:#064a33;--mint:#eff8f3;--gold:#e8b84b}
-*{box-sizing:border-box}
-body{margin:0;background:var(--mint);color:#173c2d;font-family:system-ui,-apple-system,Arial,sans-serif}
+*{box-sizing:border-box}body{margin:0;background:var(--mint);color:#173c2d;font-family:system-ui,-apple-system,Arial,sans-serif}
 header{background:linear-gradient(135deg,#064a33,#0a8056);color:#fff;text-align:center;padding:25px 16px 23px}
-header h1{margin:0;font-size:clamp(28px,7vw,42px);letter-spacing:-1px}
-header p{margin:8px 0 0;font-size:16px;opacity:.92}
-#today{margin-top:10px;font-size:15px}
-main{max-width:720px;margin:auto;padding:15px}
-.card{background:#fff;border-radius:22px;padding:21px;margin:14px 0;box-shadow:0 8px 26px #12331b10;animation:rise .55s both}
-@keyframes rise{from{opacity:0;transform:translateY(13px)}to{opacity:1;transform:translateY(0)}}
-h2{font-size:23px;margin:0 0 16px;color:#124b35}
-p{line-height:1.55}
-button,input,select{font:inherit}
-button{border:0;border-radius:13px;background:var(--green);color:#fff;padding:12px 16px;margin:5px 4px 5px 0;cursor:pointer;transition:transform .15s,background .2s;min-height:46px}
-button:active{transform:scale(.96);background:var(--dark)}
-button.secondary{background:#e5f3eb;color:#075c3c;border:1px solid #c4e1d0}
-button:focus-visible,input:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
-.small{font-size:14px;color:#68796f}
-.prayer{display:flex;justify-content:space-between;align-items:center;padding:11px 0;border-bottom:1px solid #e6eee8;font-size:18px}
-.prayer:last-child{border-bottom:0}
-.prayer b{font-weight:700}
-.hidden{display:none!important}
-.subnav{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:12px}
-.subnav button{flex:1;min-width:100px}
-.bigcount{font-size:54px;font-weight:750;margin:10px 0;color:var(--dark);font-variant-numeric:tabular-nums}
-.dhikr{font-size:26px;direction:rtl;text-align:center;line-height:1.9}
-.meaning{padding:12px 0;border-bottom:1px solid #e6eee8}
-input{width:100%;border:1px solid #cbded1;border-radius:11px;padding:12px;margin:5px 0 10px;background:white;color:#173c2d}
-label{font-size:14px;font-weight:650}
-.nameitem{padding:13px 0;border-bottom:1px solid #e6eee8}
-.namearabic{font-size:26px;direction:rtl}
-.pill{display:inline-block;background:#e5f3eb;color:#075c3c;padding:4px 9px;border-radius:99px;font-size:12px}
-a{color:#08744f}
-footer{text-align:center;padding:20px;color:#738177;font-size:13px}
-@media(prefers-reduced-motion:reduce){.card{animation:none}button{transition:none}}
+header h1{margin:0;font-size:clamp(28px,7vw,42px);letter-spacing:-1px}header p{margin:8px 0 0;font-size:16px;opacity:.92}#today{margin-top:10px;font-size:15px}
+main{max-width:720px;margin:auto;padding:15px}.card{background:#fff;border-radius:22px;padding:21px;margin:14px 0;box-shadow:0 8px 26px #12331b10;animation:rise .4s both}
+@keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}h2{font-size:23px;margin:0 0 16px;color:#124b35}p{line-height:1.55}
+button,input,select{font:inherit}button{border:0;border-radius:13px;background:var(--green);color:#fff;padding:12px 16px;margin:5px 4px 5px 0;cursor:pointer;min-height:46px}
+button:active{transform:scale(.98);background:var(--dark)}button.secondary{background:#e5f3eb;color:#075c3c;border:1px solid #c4e1d0}
+button:focus-visible,input:focus-visible{outline:3px solid var(--gold);outline-offset:2px}.small{font-size:14px;color:#68796f}
+.prayer{display:flex;justify-content:space-between;align-items:center;padding:11px 0;border-bottom:1px solid #e6eee8;font-size:18px}.prayer:last-child{border-bottom:0}
+.hidden{display:none!important}.subnav{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:12px}.subnav button{flex:1;min-width:100px}
+.bigcount{font-size:54px;font-weight:750;margin:10px 0;color:var(--dark);font-variant-numeric:tabular-nums}.dhikr{font-size:26px;direction:rtl;text-align:center;line-height:1.9}
+.meaning{padding:12px 0;border-bottom:1px solid #e6eee8}input,select{width:100%;border:1px solid #cbded1;border-radius:11px;padding:12px;margin:5px 0 10px;background:white;color:#173c2d}
+label{font-size:14px;font-weight:650}.nameitem{padding:13px 0;border-bottom:1px solid #e6eee8}.namearabic{font-size:26px;direction:rtl}.pill{display:inline-block;background:#e5f3eb;color:#075c3c;padding:4px 9px;border-radius:99px;font-size:12px}
+a{color:#08744f}iframe{width:100%;height:280px;border:0;border-radius:14px;margin-top:10px}footer{text-align:center;padding:20px;color:#738177;font-size:13px}
+@media(prefers-reduced-motion:reduce){.card{animation:none}}
 </style>
 </head>
 <body>
-<header>
-<h1>☾ Noor-e-Deen</h1>
-<p>Namaz • Tasbeeh • Dua • Qibla • Masjid</p>
-<div id="today"></div>
-</header>
+<header><h1>☾ Noor-e-Deen</h1><p>Namaz • Tasbeeh • Dua • Qibla • Masjid</p><div id="today"></div></header>
 <main>
 <section class="card">
-<h2>🕌 Local Masjid Jamaat Timings</h2>
-<div id="times"></div>
+<h2>🕌 Local Masjid Jamaat Timings</h2><div id="times"></div>
 <label for="editPrayer">Kis namaz ka waqt badalna hai?</label>
-<select id="editPrayer" style="width:100%;padding:12px;border-radius:10px;border:1px solid #cbded1;margin:8px 0">
-<option>Fajr</option><option>Zuhr</option><option>Asr</option><option>Maghrib</option><option>Isha</option>
-</select>
-<label for="editTime">Naya jamaat waqt</label>
-<input id="editTime" type="time" value="05:00" style="width:100%;padding:12px;border-radius:10px;border:1px solid #cbded1;margin:8px 0">
-<button onclick="editTimes()">Sirf Is Namaz Ka Waqt Save Karein</button>
-<p class="small">Demo timings hain. Apni masjid ke mutabiq edit karein.</p>
+<select id="editPrayer"><option>Fajr</option><option>Zuhr</option><option>Asr</option><option>Maghrib</option><option>Isha</option></select>
+<label for="editTime">Naya jamaat waqt</label><input id="editTime" type="time" value="05:00">
+<button onclick="editTimes()">Sirf Is Namaz Ka Waqt Save Karein</button><p class="small">Demo timings hain. Apni masjid ke mutabiq edit karein.</p>
 </section>
-
 <section class="card">
-<h2>📿 Tasbeeh</h2>
-<div class="subnav">
-<button onclick="chooseDhikr(0)">Allahu Akbar</button>
-<button onclick="chooseDhikr(1)">SubhanAllah</button>
-<button onclick="chooseDhikr(2)">Alhamdulillah</button>
-</div>
-<div id="dhikrTitle" style="text-align:center;font-weight:700">Allahu Akbar</div>
-<div id="arabicDhikr" class="dhikr">اللّٰهُ أَكْبَرُ</div>
-<div id="count" class="bigcount" style="text-align:center">0</div>
-<div style="text-align:center">
-<button onclick="addCount()" style="min-width:150px">Tasbeeh +1</button>
-<button class="secondary" onclick="resetCount()">Reset</button>
-</div>
-<p class="small">Har zikr ka count alag save hota hai.</p>
+<h2>📿 Tasbeeh</h2><div class="subnav"><button onclick="chooseDhikr(0)">Allahu Akbar</button><button onclick="chooseDhikr(1)">SubhanAllah</button><button onclick="chooseDhikr(2)">Alhamdulillah</button></div>
+<div id="dhikrTitle" style="text-align:center;font-weight:700">Allahu Akbar</div><div id="arabicDhikr" class="dhikr">اللّٰهُ أَكْبَرُ</div><div id="count" class="bigcount" style="text-align:center">0</div>
+<div style="text-align:center"><button onclick="addCount()" style="min-width:150px">Tasbeeh +1</button><button class="secondary" onclick="resetCount()">Reset</button></div><p class="small">Har zikr ka count alag save hota hai.</p>
 </section>
-
 <section class="card">
-<h2>🧭 Qibla Finder</h2>
-<p>App ke andar Qibla ki simt ka andaza dekhein. Compass ki sahulat phone par depend karti hai.</p>
-<button onclick="showQibla()">Qibla App Mein Dekhein</button>
-<div id="qiblaResult" class="hidden">
-<div id="qiblaArrow" style="font-size:90px;text-align:center;transition:transform .5s">⬆️</div>
-<div id="qiblaText" style="text-align:center;font-weight:650"></div>
-<p class="small">Yeh location ke hisaab se calculated direction hai, live compass nahi. Phone compass se verify karein.</p>
-</div>
+<h2>🧭 Qibla Finder</h2><p>Location se Qibla ka angle nikalein. Agar phone compass support karta hai to live direction bhi dikh sakti hai.</p>
+<button onclick="showQibla()">Qibla App Mein Dekhein</button><button class="secondary" onclick="startCompass()">Live Compass Shuru Karein</button>
+<div id="qiblaResult" class="hidden"><div id="qiblaArrow" style="font-size:90px;text-align:center;transition:transform .2s">⬆️</div><div id="qiblaText" style="text-align:center;font-weight:650"></div><p id="compassText" class="small" style="text-align:center">Compass abhi shuru nahi hua.</p><p class="small">Phone ko flat rakhein aur compass ko aas-paas ki magnetic cheezon se door rakhein. Direction ko local masjid se verify karein.</p></div>
 </section>
-
 <section class="card">
-<h2>🤲 Dua</h2>
-<div id="duaArabic" class="dhikr">سُبْحَانَ اللّٰهِ وَبِحَمْدِهِ</div>
-<p id="duaUrdu" style="direction:rtl;text-align:right;font-size:19px">اللہ پاک ہے اور اسی کی حمد ہے۔</p>
-<p id="duaRoman">Roman Urdu: SubhanAllahi wa bihamdihi.</p>
-<button onclick="nextDua()">Agli Dua</button>
-<p class="small">Tarjuma aam mafhoom ke taur par diya gaya hai; Kanzu'l Iman ka lafzi quote hone ka daawa nahi.</p>
+<h2>🤲 Dua</h2><div id="duaArabic" class="dhikr">سُبْحَانَ اللّٰهِ وَبِحَمْدِهِ</div><p id="duaUrdu" style="direction:rtl;text-align:right;font-size:19px">اللہ پاک ہے اور اسی کی حمد ہے۔</p><p id="duaRoman">Roman Urdu: SubhanAllahi wa bihamdihi.</p>
+<button onclick="nextDua()">Agli Dua</button><p class="small">Tarjuma aam mafhoom ke taur par diya gaya hai.</p>
 </section>
-
 <section class="card">
-<h2>🔔 Namaz Reminder</h2>
-<p>Namaz ke liye reminder set karne ka option. Android WebView mein browser notification support alag ho sakta hai.</p>
-<label for="reminderPrayer">Namaz chunein</label>
-<select id="reminderPrayer" style="width:100%;padding:12px;border-radius:10px;border:1px solid #cbded1">
-<option>Fajr</option><option>Zuhr</option><option>Asr</option><option>Maghrib</option><option>Isha</option>
-</select>
-<label for="reminderTime">Reminder ka waqt</label>
-<input type="time" id="reminderTime" value="05:00">
-<button onclick="saveReminder()">Reminder Save Karein</button>
-<div id="reminderStatus" class="small"></div>
-<p class="small">Note: yeh waqt app ke andar save hota hai. App band hone par notification chalane ke liye native Android alarm/notification code aur permission chahiye; sirf HTML se guarantee nahi hoti.</p>
+<h2>🔔 Namaz Reminder</h2><p>Reminder ka waqt app mein save hoga. App band hone par notification ke liye native Android alarm/notification code zaroori hai.</p>
+<label for="reminderPrayer">Namaz chunein</label><select id="reminderPrayer"><option>Fajr</option><option>Zuhr</option><option>Asr</option><option>Maghrib</option><option>Isha</option></select>
+<label for="reminderTime">Reminder ka waqt</label><input type="time" id="reminderTime" value="05:00"><button onclick="saveReminder()">Reminder Save Karein</button><div id="reminderStatus" class="small"></div>
 </section>
-
+<section class="card"><h2>📿 Allah ke 99 Naam — Asma-ul-Husna</h2><p class="small">Arabic naam aur Roman Urdu/Urdu maani. Tarjume mukhtasar mafhoom hain.</p><p id="nameCount" class="small"></p><div id="names"></div></section>
 <section class="card">
-<h2>📿 Allah ke 99 Naam — Asma-ul-Husna</h2>
-<p class="small">Arabic naam aur Roman Urdu/Urdu maani. Tarjume mukhtasar mafhoom hain.</p>
-<p id="nameCount" class="small"></p><div id="names"></div>
+<h2>📍 Qareebi Masjid Finder</h2><p>Location allow karne par 5 km ke andar OpenStreetMap par listed masajid dhoondhne ki koshish hogi.</p>
+<button onclick="findMosques()">Meri Location ke Paas Masjid Dhoondein</button><div id="mosqueStatus" class="small"></div><div id="mosqueMap"></div><div id="mosques"></div>
 </section>
-
-<section class="card">
-<h2>📍 Qareebi Masjid Finder</h2>
-<p>Location allow karne par qareebi masajid OpenStreetMap data se dhoondhne ki koshish karega. Jamaat ke waqt online listing mein aksar available nahi hote; har masjid ka waqt confirm karna zaroori hai.</p>
-<button onclick="findMosques()">Meri Location ke Paas Masjid Dhoondein</button>
-<div id="mosqueStatus" class="small"></div>
-<div id="mosques"></div>
-</section>
-</main>
-<footer>Noor-e-Deen • Demo app. Namaz ke auqat aur masjid ki jamaat timings local masjid se tasdeeq karein.</footer>
+</main><footer>Noor-e-Deen • Demo app. Namaz ke auqat aur jamaat timings local masjid se tasdeeq karein.</footer>
 <script>
 const defaults={Fajr:"05:00",Zuhr:"13:15",Asr:"16:30",Maghrib:"Sunset",Isha:"20:00"};
-let timings={...defaults};
-try{timings={...timings,...JSON.parse(localStorage.getItem("noorTimes")||"{}")}}catch(e){}
-function showTimes(){document.getElementById("times").innerHTML=Object.entries(timings).map(([n,t])=>`<div class="prayer"><b>${n}</b><span>${escapeHtml(t)}</span></div>`).join("")}
-function editTimes(){const n=document.getElementById("editPrayer").value;const v=document.getElementById("editTime").value;if(!v){alert("Waqt select karein.");return}timings[n]=v;try{localStorage.setItem("noorTimes",JSON.stringify(timings))}catch(e){}showTimes();alert(n+" ka jamaat waqt save ho gaya.");}
-function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+let timings={...defaults};try{timings={...timings,...JSON.parse(localStorage.getItem("noorTimes")||"{}")}}catch(e){}
+function escapeHtml(s){return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function showTimes(){document.getElementById("times").innerHTML=Object.entries(timings).map(([n,t])=>`<div class="prayer"><b>${escapeHtml(n)}</b><span>${escapeHtml(t)}</span></div>`).join("")}
+function editTimes(){const n=document.getElementById("editPrayer").value,v=document.getElementById("editTime").value;if(!v){alert("Waqt select karein.");return}timings[n]=v;try{localStorage.setItem("noorTimes",JSON.stringify(timings))}catch(e){}showTimes();alert(n+" ka jamaat waqt save ho gaya.")}
 const dhikr=[["Allahu Akbar","اللّٰهُ أَكْبَرُ"],["SubhanAllah","سُبْحَانَ اللّٰهِ"],["Alhamdulillah","الْحَمْدُ لِلّٰهِ"]];
-let selected=0,counts=[0,0,0];try{counts=JSON.parse(localStorage.getItem("noorCounts")||"[0,0,0]")}catch(e){}
+let selected=0,counts=[0,0,0];try{const saved=JSON.parse(localStorage.getItem("noorCounts")||"[0,0,0]");if(Array.isArray(saved))counts=[0,1,2].map(i=>Number(saved[i])||0)}catch(e){}
 function chooseDhikr(i){selected=i;document.getElementById("dhikrTitle").textContent=dhikr[i][0];document.getElementById("arabicDhikr").textContent=dhikr[i][1];document.getElementById("count").textContent=counts[i]}
 function addCount(){counts[selected]++;document.getElementById("count").textContent=counts[selected];try{localStorage.setItem("noorCounts",JSON.stringify(counts))}catch(e){}}
 function resetCount(){if(confirm("Is zikr ka count zero karein?")){counts[selected]=0;chooseDhikr(selected);try{localStorage.setItem("noorCounts",JSON.stringify(counts))}catch(e){}}}
 const duas=[
 ["بِاسْمِكَ اللَّهُمَّ أَمُوتُ وَأَحْيَا","اے اللہ! تیرے نام کے ساتھ مرتا اور جیتا ہوں۔","Bismika Allahumma amutu wa ahya. — Sone ki dua"],
-["الْحَمْدُ لِلَّهِ الَّذِي أَحْيَانَا بَعْدَ مَا أَمَاتَنَا وَإِلَيْهِ النُّشُورُ","تمام تعریف اللہ کے لیے ہے جس نے ہمیں موت جیسی نیند کے بعد زندگی دی، اور اسی کی طرف اٹھنا ہے۔","Alhamdu lillahil-ladhi ahyana ba’da ma amatana wa ilayhin-nushur. — Uthne ki dua"],
+["الْحَمْدُ لِلَّهِ الَّذِي أَحْيَانَا بَعْدَ مَا أَمَاتَنَا وَإِلَيْهِ النُّشُورُ","تمام تعریف اللہ کے لیے ہے جس نے ہمیں نیند کے بعد زندگی دی، اور اسی کی طرف اٹھنا ہے۔","Alhamdu lillahil-ladhi ahyana ba’da ma amatana wa ilayhin-nushur. — Uthne ki dua"],
 ["بِسْمِ اللَّهِ","اللہ کے نام سے۔","Bismillah. — Khana shuru karte waqt"],
 ["الْحَمْدُ لِلَّهِ","تمام تعریف اللہ کے لیے ہے۔","Alhamdulillah. — Khane ke baad"],
 ["بِسْمِ اللَّهِ تَوَكَّلْتُ عَلَى اللَّهِ وَلَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللَّهِ","اللہ کے نام سے، میں نے اللہ پر بھروسا کیا؛ اللہ کے بغیر نہ طاقت ہے نہ قوت۔","Bismillahi tawakkaltu ‘alallah, wa la hawla wa la quwwata illa billah. — Ghar se nikalte waqt"],
@@ -153,144 +82,35 @@ const duas=[
 ["اللّٰهُمَّ إِنِّي أَسْأَلُكَ الْعَفْوَ وَالْعَافِيَةَ","اے اللہ! میں تجھ سے معافی اور عافیت مانگتا ہوں۔","Allahumma inni as’alukal-‘afwa wal-‘afiyah."]
 ];let duaIndex=0;
 function nextDua(){duaIndex=(duaIndex+1)%duas.length;document.getElementById("duaArabic").textContent=duas[duaIndex][0];document.getElementById("duaUrdu").textContent=duas[duaIndex][1];document.getElementById("duaRoman").textContent="Roman Urdu: "+duas[duaIndex][2]}
-function showQibla(){
- const box=document.getElementById("qiblaResult");box.classList.remove("hidden");
- const txt=document.getElementById("qiblaText"),arrow=document.getElementById("qiblaArrow");
- if(!navigator.geolocation){txt.textContent="Is device par location available nahi.";return}
- txt.textContent="Location hasil ho rahi hai…";
- navigator.geolocation.getCurrentPosition(pos=>{
-  const lat=pos.coords.latitude*Math.PI/180,lon=pos.coords.longitude*Math.PI/180;
-  const kLat=21.4225*Math.PI/180,kLon=39.8262*Math.PI/180;
-  const y=Math.sin(kLon-lon),x=Math.cos(lat)*Math.tan(kLat)-Math.sin(lat)*Math.cos(kLon-lon);
-  const bearing=(Math.atan2(y,x)*180/Math.PI+360)%360;
-  arrow.style.transform=`rotate(${bearing}deg)`;
-  txt.textContent=`Kaaba ki simt: ${bearing.toFixed(1)}° (North se clockwise).`;
- },err=>{txt.textContent="Location nahi mili. Phone Settings mein Noor-e-Deen ki location permission allow karein; phir dobara koshish karein."},{enableHighAccuracy:true,timeout:12000,maximumAge:60000});
-}
-function saveReminder(){
- const prayer=document.getElementById("reminderPrayer").value,time=document.getElementById("reminderTime").value;
- try{localStorage.setItem("noorReminder",JSON.stringify({prayer,time}))}catch(e){}
- document.getElementById("reminderStatus").textContent=`${prayer} reminder ka waqt ${time} app mein save hua. App band hone par notification ke liye native Android integration abhi zaroori hai.`;
-}
+let qiblaBearing=null,compassHandler=null;
+function showQibla(){const box=document.getElementById("qiblaResult");box.classList.remove("hidden");const txt=document.getElementById("qiblaText");if(!navigator.geolocation){txt.textContent="Is device par location available nahi.";return}txt.textContent="Location hasil ho rahi hai…";
+navigator.geolocation.getCurrentPosition(pos=>{const lat=pos.coords.latitude*Math.PI/180,lon=pos.coords.longitude*Math.PI/180,kLat=21.4225*Math.PI/180,kLon=39.8262*Math.PI/180;const y=Math.sin(kLon-lon),x=Math.cos(lat)*Math.tan(kLat)-Math.sin(lat)*Math.cos(kLon-lon);qiblaBearing=(Math.atan2(y,x)*180/Math.PI+360)%360;document.getElementById("qiblaArrow").style.transform=`rotate(${qiblaBearing}deg)`;txt.textContent=`Kaaba ki simt: ${qiblaBearing.toFixed(1)}° (North se clockwise).`;document.getElementById("compassText").textContent="Yeh abhi north se calculated angle hai; live compass ke liye neeche button dabayein."},()=>{txt.textContent="Location nahi mili. Browser/Android settings mein location permission allow karke dobara try karein."},{enableHighAccuracy:true,timeout:15000,maximumAge:60000})}
+async function startCompass(){document.getElementById("qiblaResult").classList.remove("hidden");const info=document.getElementById("compassText");if(qiblaBearing===null){info.textContent="Pehle 'Qibla App Mein Dekhein' dabakar location lein.";return}
+if(typeof DeviceOrientationEvent==="undefined"){info.textContent="Is browser/WebView mein compass sensor available nahi. Calculated angle use karein.";return}
+try{if(typeof DeviceOrientationEvent.requestPermission==="function"){const permission=await DeviceOrientationEvent.requestPermission();if(permission!=="granted"){info.textContent="Compass permission allow nahi hui.";return}}}catch(e){info.textContent="Compass permission nahi mili. Phone settings check karein.";return}
+if(compassHandler)window.removeEventListener("deviceorientation",compassHandler);
+compassHandler=e=>{let heading;if(typeof e.webkitCompassHeading==="number")heading=e.webkitCompassHeading;else if(typeof e.alpha==="number")heading=(360-e.alpha)%360;else return;const angle=(qiblaBearing-heading+360)%360;document.getElementById("qiblaArrow").style.transform=`rotate(${angle}deg)`;info.textContent=`Live compass: ${heading.toFixed(0)}° • Qibla phone ke saamne se ${angle.toFixed(0)}° ghoom kar`};
+window.addEventListener("deviceorientation",compassHandler,true);info.textContent="Phone ko ghumayein; sensor direction milne ka intezar hai."}
+function saveReminder(){const prayer=document.getElementById("reminderPrayer").value,time=document.getElementById("reminderTime").value;try{localStorage.setItem("noorReminder",JSON.stringify({prayer,time}))}catch(e){}document.getElementById("reminderStatus").textContent=`${prayer} reminder ka waqt ${time} app mein save hua. App band hone par notification ke liye native Android integration zaroori hai.`}
 const names=[
-["الرَّحْمَٰنُ","Ar-Rahman","Nihayat Meherban","نہایت مہربان"],
-["الرَّحِيمُ","Ar-Raheem","Bahut Raham Farmane Wala","بہت رحم فرمانے والا"],
-["الْمَلِكُ","Al-Malik","Haqeeqi Badshah","حقیقی بادشاہ"],
-["الْقُدُّوسُ","Al-Quddus","Nihayat Paak","نہایت پاک"],
-["السَّلَامُ","As-Salam","Salamati Dene Wala","سلامتی دینے والا"],
-["الْمُؤْمِنُ","Al-Mu’min","Aman Dene Wala","امن دینے والا"],
-["الْمُهَيْمِنُ","Al-Muhaymin","Nigehban","نگہبان"],
-["الْعَزِيزُ","Al-Aziz","Sab Par Ghalib","سب پر غالب"],
-["الْجَبَّارُ","Al-Jabbar","Zabardast Iqtidar Wala","زبردست اقتدار والا"],
-["الْمُتَكَبِّرُ","Al-Mutakabbir","Buzurgi Wala","بزرگی والا"],
-["الْخَالِقُ","Al-Khaliq","Paida Karne Wala","پیدا کرنے والا"],
-["الْبَارِئُ","Al-Bari","Wujood Mein Lane Wala","وجود میں لانے والا"],
-["الْمُصَوِّرُ","Al-Musawwir","Soorat Banane Wala","صورت بنانے والا"],
-["الْغَفَّارُ","Al-Ghaffar","Baar Baar Bakshne Wala","بار بار بخشنے والا"],
-["الْقَهَّارُ","Al-Qahhar","Sab Par Ghalib","سب پر غالب"],
-["الْوَهَّابُ","Al-Wahhab","Bahut Ata Karne Wala","بہت عطا کرنے والا"],
-["الرَّزَّاقُ","Ar-Razzaq","Rizq Dene Wala","رزق دینے والا"],
-["الْفَتَّاحُ","Al-Fattah","Kholne Aur Faisla Karne Wala","کھولنے اور فیصلہ کرنے والا"],
-["الْعَلِيمُ","Al-Alim","Sab Kuch Jaanne Wala","سب کچھ جاننے والا"],
-["الْقَابِضُ","Al-Qabid","Tang Karne Wala","تنگ کرنے والا"],
-["الْبَاسِطُ","Al-Basit","Kushadgi Dene Wala","کشادگی دینے والا"],
-["الْخَافِضُ","Al-Khafid","Pasti Dene Wala","پستی دینے والا"],
-["الرَّافِعُ","Ar-Rafi","Buland Karne Wala","بلند کرنے والا"],
-["الْمُعِزُّ","Al-Mu’izz","Izzat Dene Wala","عزت دینے والا"],
-["الْمُذِلُّ","Al-Mudhill","Zillat Dene Wala","ذلت دینے والا"],
-["السَّمِيعُ","As-Sami","Sab Sunne Wala","سب سننے والا"],
-["الْبَصِيرُ","Al-Basir","Sab Dekhne Wala","سب دیکھنے والا"],
-["الْحَكَمُ","Al-Hakam","Hukm Farmane Wala","حکم فرمانے والا"],
-["الْعَدْلُ","Al-Adl","Adl Karne Wala","عدل کرنے والا"],
-["اللَّطِيفُ","Al-Latif","Bareek Been Aur Meherban","باریک بین اور مہربان"],
-["الْخَبِيرُ","Al-Khabir","Ba-Khabar","باخبر"],
-["الْحَلِيمُ","Al-Halim","Bardasht Farmane Wala","بردبار"],
-["الْعَظِيمُ","Al-Azim","Azmat Wala","عظمت والا"],
-["الْغَفُورُ","Al-Ghafur","Bahut Bakshne Wala","بہت بخشنے والا"],
-["الشَّكُورُ","Ash-Shakur","Qadr Karne Wala","قدر فرمانے والا"],
-["الْعَلِيُّ","Al-Ali","Sab Se Buland","سب سے بلند"],
-["الْكَبِيرُ","Al-Kabir","Sab Se Bada","سب سے بڑا"],
-["الْحَفِيظُ","Al-Hafiz","Hifazat Karne Wala","حفاظت کرنے والا"],
-["الْمُقِيتُ","Al-Muqit","Quwwat Aur Rizq Dene Wala","قوت اور رزق دینے والا"],
-["الْحَسِيبُ","Al-Hasib","Hisab Lene Wala","حساب لینے والا"],
-["الْجَلِيلُ","Al-Jalil","Jalal Wala","جلال والا"],
-["الْكَرِيمُ","Al-Karim","Karam Wala","کرم والا"],
-["الرَّقِيبُ","Ar-Raqib","Nigrani Farmane Wala","نگرانی فرمانے والا"],
-["الْمُجِيبُ","Al-Mujib","Dua Qabool Karne Wala","دعا قبول فرمانے والا"],
-["الْوَاسِعُ","Al-Wasi","Wusat Wala","وسعت والا"],
-["الْحَكِيمُ","Al-Hakim","Hikmat Wala","حکمت والا"],
-["الْوَدُودُ","Al-Wadud","Muhabbat Farmane Wala","محبت فرمانے والا"],
-["الْمَجِيدُ","Al-Majid","Buzurgi Aur Shaan Wala","بزرگی اور شان والا"],
-["الْبَاعِثُ","Al-Ba’ith","Dobara Uthane Wala","دوبارہ اٹھانے والا"],
-["الشَّهِيدُ","Ash-Shahid","Gawah","گواہ"],
-["الْحَقُّ","Al-Haqq","Barhaq","برحق"],
-["الْوَكِيلُ","Al-Wakil","Kaarsaaz","کارساز"],
-["الْقَوِيُّ","Al-Qawiyy","Nihayat Quwwat Wala","نہایت قوت والا"],
-["الْمَتِينُ","Al-Matin","Mazboot Quwwat Wala","مضبوط قوت والا"],
-["الْوَلِيُّ","Al-Waliyy","Dost Aur Himayati","دوست اور حمایتی"],
-["الْحَمِيدُ","Al-Hamid","Tareef Ke Laaiq","تعریف کے لائق"],
-["الْمُحْصِي","Al-Muhsi","Shumar Rakhne Wala","شمار رکھنے والا"],
-["الْمُبْدِئُ","Al-Mubdi","Pehli Baar Paida Karne Wala","پہلی بار پیدا کرنے والا"],
-["الْمُعِيدُ","Al-Mu’id","Dobara Paida Karne Wala","دوبارہ پیدا کرنے والا"],
-["الْمُحْيِي","Al-Muhyi","Zindagi Dene Wala","زندگی دینے والا"],
-["الْمُمِيتُ","Al-Mumit","Maut Dene Wala","موت دینے والا"],
-["الْحَيُّ","Al-Hayy","Hamesha Zinda","ہمیشہ زندہ"],
-["الْقَيُّومُ","Al-Qayyum","Sab Ko Qaim Rakhne Wala","سب کو قائم رکھنے والا"],
-["الْوَاجِدُ","Al-Wajid","Sab Kuch Paane Wala","سب کچھ پانے والا"],
-["الْمَاجِدُ","Al-Maajid","Buzurgi Wala","بزرگی والا"],
-["الْوَاحِدُ","Al-Wahid","Yakta","یکتا"],
-["الصَّمَدُ","As-Samad","Be-Niyaz","بے نیاز"],
-["الْقَادِرُ","Al-Qadir","Qudrat Wala","قدرت والا"],
-["الْمُقْتَدِرُ","Al-Muqtadir","Kamil Iqtidar Wala","کامل اقتدار والا"],
-["الْمُقَدِّمُ","Al-Muqaddim","Aage Karne Wala","آگے کرنے والا"],
-["الْمُؤَخِّرُ","Al-Mu’akhkhir","Peechhe Karne Wala","پیچھے کرنے والا"],
-["الْأَوَّلُ","Al-Awwal","Sab Se Pehle","سب سے پہلے"],
-["الْآخِرُ","Al-Akhir","Sab Ke Baad Baqi","سب کے بعد باقی"],
-["الظَّاهِرُ","Az-Zahir","Zahir","ظاہر"],
-["الْبَاطِنُ","Al-Batin","Posheeda Haqeeqat Jaanne Wala","پوشیدہ حقیقت جاننے والا"],
-["الْوَالِي","Al-Wali","Hukmaran","حکمران"],
-["الْمُتَعَالِي","Al-Muta’ali","Nihayat Buland","نہایت بلند"],
-["الْبَرُّ","Al-Barr","Ehsan Karne Wala","احسان کرنے والا"],
-["التَّوَّابُ","At-Tawwab","Tauba Qabool Karne Wala","توبہ قبول کرنے والا"],
-["الْمُنْتَقِمُ","Al-Muntaqim","Insaf Se Badla Lene Wala","انصاف سے بدلہ لینے والا"],
-["الْعَفُوُّ","Al-Afuww","Maaf Farmane Wala","معاف فرمانے والا"],
-["الرَّؤُوفُ","Ar-Ra’uf","Nihayat Shafeeq","نہایت شفیق"],
-["مَالِكُ الْمُلْكِ","Malik-ul-Mulk","Saari Saltanat Ka Malik","ساری سلطنت کا مالک"],
-["ذُو الْجَلَالِ وَالْإِكْرَامِ","Dhul-Jalali wal-Ikram","Jalal Aur Izzat Wala","جلال اور عزت والا"],
-["الْمُقْسِطُ","Al-Muqsit","Insaf Karne Wala","انصاف کرنے والا"],
-["الْجَامِعُ","Al-Jami","Jama Karne Wala","جمع کرنے والا"],
-["الْغَنِيُّ","Al-Ghani","Be-Parwah","بے پرواہ"],
-["الْمُغْنِي","Al-Mughni","Ghani Karne Wala","غنی کرنے والا"],
-["الْمَانِعُ","Al-Mani","Rokne Wala","روکنے والا"],
-["الضَّارُّ","Ad-Darr","Hikmat Se Imtihan Aane Dene Wala","حکمت سے آزمائش آنے دینے والا"],
-["النَّافِعُ","An-Nafi","Nafa Dene Wala","نفع دینے والا"],
-["النُّورُ","An-Nur","Noor Dene Wala","نور دینے والا"],
-["الْهَادِي","Al-Hadi","Hidayat Dene Wala","ہدایت دینے والا"],
-["الْبَدِيعُ","Al-Badi","Be-Misaal Paida Karne Wala","بے مثال پیدا کرنے والا"],
-["الْبَاقِي","Al-Baqi","Hamesha Baqi","ہمیشہ باقی"],
-["الْوَارِثُ","Al-Warith","Sab Ka Waris","سب کا وارث"],
-["الرَّشِيدُ","Ar-Rashid","Raah Dikhane Wala","راہ دکھانے والا"],
-["الصَّبُورُ","As-Sabur","Bahut Sabr Wala","بہت صبر والا"]
+["الرَّحْمَٰنُ","Ar-Rahman","Nihayat Meherban","نہایت مہربان"],["الرَّحِيمُ","Ar-Raheem","Bahut Raham Farmane Wala","بہت رحم فرمانے والا"],["الْمَلِكُ","Al-Malik","Haqeeqi Badshah","حقیقی بادشاہ"],["الْقُدُّوسُ","Al-Quddus","Nihayat Paak","نہایت پاک"],["السَّلَامُ","As-Salam","Salamati Dene Wala","سلامتی دینے والا"],["الْمُؤْمِنُ","Al-Mu’min","Aman Dene Wala","امن دینے والا"],["الْمُهَيْمِنُ","Al-Muhaymin","Nigehban","نگہبان"],["الْعَزِيزُ","Al-Aziz","Sab Par Ghalib","سب پر غالب"],["الْجَبَّارُ","Al-Jabbar","Zabardast Iqtidar Wala","زبردست اقتدار والا"],["الْمُتَكَبِّرُ","Al-Mutakabbir","Buzurgi Wala","بزرگی والا"],["الْخَالِقُ","Al-Khaliq","Paida Karne Wala","پیدا کرنے والا"],["الْبَارِئُ","Al-Bari","Wujood Mein Lane Wala","وجود میں لانے والا"],["الْمُصَوِّرُ","Al-Musawwir","Soorat Banane Wala","صورت بنانے والا"],["الْغَفَّارُ","Al-Ghaffar","Baar Baar Bakshne Wala","بار بار بخشنے والا"],["الْقَهَّارُ","Al-Qahhar","Sab Par Ghalib","سب پر غالب"],["الْوَهَّابُ","Al-Wahhab","Bahut Ata Karne Wala","بہت عطا کرنے والا"],["الرَّزَّاقُ","Ar-Razzaq","Rizq Dene Wala","رزق دینے والا"],["الْفَتَّاحُ","Al-Fattah","Kholne Aur Faisla Karne Wala","کھولنے اور فیصلہ کرنے والا"],["الْعَلِيمُ","Al-Alim","Sab Kuch Jaanne Wala","سب کچھ جاننے والا"],["الْقَابِضُ","Al-Qabid","Tang Karne Wala","تنگ کرنے والا"],["الْبَاسِطُ","Al-Basit","Kushadgi Dene Wala","کشادگی دینے والا"],["الْخَافِضُ","Al-Khafid","Pasti Dene Wala","پستی دینے والا"],["الرَّافِعُ","Ar-Rafi","Buland Karne Wala","بلند کرنے والا"],["الْمُعِزُّ","Al-Mu’izz","Izzat Dene Wala","عزت دینے والا"],["الْمُذِلُّ","Al-Mudhill","Zillat Dene Wala","ذلت دینے والا"],["السَّمِيعُ","As-Sami","Sab Sunne Wala","سب سننے والا"],["الْبَصِيرُ","Al-Basir","Sab Dekhne Wala","سب دیکھنے والا"],["الْحَكَمُ","Al-Hakam","Hukm Farmane Wala","حکم فرمانے والا"],["الْعَدْلُ","Al-Adl","Adl Karne Wala","عدل کرنے والا"],["اللَّطِيفُ","Al-Latif","Bareek Been Aur Meherban","باریک بین اور مہربان"],["الْخَبِيرُ","Al-Khabir","Ba-Khabar","باخبر"],["الْحَلِيمُ","Al-Halim","Bardasht Farmane Wala","بردبار"],["الْعَظ
+ِيمُ","Al-Azim","Azmat Wala","عظمت والا"],["الْغَفُورُ","Al-Ghafur","Bahut Bakshne Wala","بہت بخشنے والا"],["الشَّكُورُ","Ash-Shakur","Qadr Karne Wala","قدر فرمانے والا"],["الْعَلِيُّ","Al-Ali","Sab Se Buland","سب سے بلند"],["الْكَبِيرُ","Al-Kabir","Sab Se Bada","سب سے بڑا"],["الْحَفِيظُ","Al-Hafiz","Hifazat Karne Wala","حفاظت کرنے والا"],["الْمُقِيتُ","Al-Muqit","Quwwat Aur Rizq Dene Wala","قوت اور رزق دینے والا"],["الْحَسِيبُ","Al-Hasib","Hisab Lene Wala","حساب لینے والا"],["الْجَلِيلُ","Al-Jalil","Jalal Wala","جلال والا"],["الْكَرِيمُ","Al-Karim","Karam Wala","کرم والا"],["الرَّقِيبُ","Ar-Raqib","Nigrani Farmane Wala","نگرانی فرمانے والا"],["الْمُجِيبُ","Al-Mujib","Dua Qabool Karne Wala","دعا قبول فرمانے والا"],["الْوَاسِعُ","Al-Wasi","Wusat Wala","وسعت والا"],["الْحَكِيمُ","Al-Hakim","Hikmat Wala","حکمت والا"],["الْوَدُودُ","Al-Wadud","Muhabbat Farmane Wala","محبت فرمانے والا"],["الْمَجِيدُ","Al-Majid","Buzurgi Aur Shaan Wala","بزرگی اور شان والا"],["الْبَاعِثُ","Al-Ba’ith","Dobara Uthane Wala","دوبارہ اٹھانے والا"],["الشَّهِيدُ","Ash-Shahid","Gawah","گواہ"],["الْحَقُّ","Al-Haqq","Barhaq","برحق"],["الْوَكِيلُ","Al-Wakil","Kaarsaaz","کارساز"],["الْقَوِيُّ","Al-Qawiyy","Nihayat Quwwat Wala","نہایت قوت والا"],["الْمَتِينُ","Al-Matin","Mazboot Quwwat Wala","مضبوط قوت والا"],["الْوَلِيُّ","Al-Waliyy","Dost Aur Himayati","دوست اور حمایتی"],["الْحَمِيدُ","Al-Hamid","Tareef Ke Laaiq","تعریف کے لائق"],["الْمُحْصِي","Al-Muhsi","Shumar Rakhne Wala","شمار رکھنے والا"],["الْمُبْدِئُ","Al-Mubdi","Pehli Baar Paida Karne Wala","پہلی بار پیدا کرنے والا"],["الْمُعِيدُ","Al-Mu’id","Dobara Paida Karne Wala","دوبارہ پیدا کرنے والا"],["الْمُحْيِي","Al-Muhyi","Zindagi Dene Wala","زندگی دینے والا"],["الْمُمِيتُ","Al-Mumit","Maut Dene Wala","موت دینے والا"],["الْحَيُّ","Al-Hayy","Hamesha Zinda","ہمیشہ زندہ"],["الْقَيُّومُ","Al-Qayyum","Sab Ko Qaim Rakhne Wala","سب کو قائم رکھنے والا"],["الْوَاجِدُ","Al-Wajid","Sab Kuch Paane Wala","سب کچھ پانے والا"],["الْمَاجِدُ","Al-Maajid","Buzurgi Wala","بزرگی والا"],["الْوَاحِدُ","Al-Wahid","Yak
+ta","یکتا"],["الصَّمَدُ","As-Samad","Be-Niyaz","بے نیاز"],["الْقَادِرُ","Al-Qadir","Qudrat Wala","قدرت والا"],["الْمُقْتَدِرُ","Al-Muqtadir","Kamil Iqtidar Wala","کامل اقتدار والا"],["الْمُقَدِّمُ","Al-Muqaddim","Aage Karne Wala","آگے کرنے والا"],["الْمُؤَخِّرُ","Al-Mu’akhkhir","Peechhe Karne Wala","پیچھے کرنے والا"],["الْأَوَّلُ","Al-Awwal","Sab Se Pehle","سب سے پہلے"],["الْآخِرُ","Al-Akhir","Sab Ke Baad Baqi","سب کے بعد باقی"],["الظَّاهِرُ","Az-Zahir","Zahir","ظاہر"],["الْبَاطِنُ","Al-Batin","Posheeda Haqeeqat Jaanne Wala","پوشیدہ حقیقت جاننے والا"],["الْوَالِي","Al-Wali","Hukmaran","حکمران"],["الْمُتَعَالِي","Al-Muta’ali","Nihayat Buland","نہایت بلند"],["الْبَرُّ","Al-Barr","Ehsan Karne Wala","احسان کرنے والا"],["التَّوَّابُ","At-Tawwab","Tauba Qabool Karne Wala","توبہ قبول کرنے والا"],["الْمُنْتَقِمُ","Al-Muntaqim","Insaf Se Badla Lene Wala","انصاف سے بدلہ لینے والا"],["الْعَفُوُّ","Al-Afuww","Maaf Farmane Wala","معاف فرمانے والا"],["الرَّؤُوفُ","Ar-Ra’uf","Nihayat Shafeeq","نہایت شفیق"],["مَالِكُ الْمُلْكِ","Malik-ul-Mulk","Saari Saltanat Ka Malik","ساری سلطنت کا مالک"],["ذُو الْجَلَالِ وَالْإِكْرَامِ","Dhul-Jalali wal-Ikram","Jalal Aur Izzat Wala","جلال اور عزت والا"],["الْمُقْسِطُ","Al-Muqsit","Insaf Karne Wala","انصاف کرنے والا"],["الْجَامِعُ","Al-Jami","Jama Karne Wala","جمع کرنے والا"],["الْغَنِيُّ","Al-Ghani","Be-Parwah","بے پرواہ"],["الْمُغْنِي","Al-Mughni","Ghani Karne Wala","غنی کرنے والا"],["الْمَانِعُ","Al-Mani","Rokne Wala","روکنے والا"],["الضَّارُّ","Ad-Darr","Hikmat Se Imtihan Aane Dene Wala","حکمت سے آزمائش آنے دینے والا"],["النَّافِعُ","An-Nafi","Nafa Dene Wala","نفع دینے والا"],["النُّورُ","An-Nur","Noor Dene Wala","نور دینے والا"],["الْهَادِي","Al-Hadi","Hidayat Dene Wala","ہدایت دینے والا"],["الْبَدِيعُ","Al-Badi","Be-Misaal Paida Karne Wala","بے مثال پیدا کرنے والا"],["الْبَاقِي","Al-Baqi","Hamesha Baqi","ہمیشہ باقی"],["الْوَارِثُ","Al-Warith","Sab Ka Waris","سب کا وارث"],["الرَّشِيدُ","Ar-Rashid","Raah Dikhane Wala","راہ دکھانے والا"],["الصَّبُورُ","As-Sabur","Bahut Sabr Wala","بہت صبر و
+الا"]
 ];
-document.getElementById("nameCount").textContent="Kul naam: "+names.length+" / 99";document.getElementById("names").innerHTML=names.map((n,i)=>`<div class="nameitem"><span class="pill">${i+1}</span><div class="namearabic">${n[0]}</div><b>${n[1]}</b><div>${n[2]}</div><div dir="rtl" style="text-align:right">${n[3]}</div></div>`).join("");
-async function findMosques(){
- const status=document.getElementById("mosqueStatus"),out=document.getElementById("mosques");
- status.textContent="Location aur masjid listings dhoondh rahe hain…";out.innerHTML="";
- if(!navigator.geolocation){status.textContent="Is app mein location feature available nahi.";return}
- navigator.geolocation.getCurrentPosition(async pos=>{
-  const lat=pos.coords.latitude,lon=pos.coords.longitude;
-  const query=`[out:json][timeout:20];(node["amenity"="place_of_worship"]["religion"="muslim"](around:5000,${lat},${lon});way["amenity"="place_of_worship"]["religion"="muslim"](around:5000,${lat},${lon});relation["amenity"="place_of_worship"]["religion"="muslim"](around:5000,${lat},${lon}););out center tags;`;
-  try{
-   const res=await fetch("https://overpass-api.de/api/interpreter",{method:"POST",headers:{"Content-Type":"application/x-www-form-urlencoded;charset=UTF-8"},body:"data="+encodeURIComponent(query)});
-   if(!res.ok)throw new Error("network");
-   const data=await res.json();
-   const list=(data.elements||[]).map(e=>({name:e.tags?.name||e.tags?.["name:en"]||"Masjid (naam listed nahi)",lat:e.lat??e.center?.lat,lon:e.lon??e.center?.lon,tags:e.tags||{}})).filter(e=>Number.isFinite(e.lat)&&Number.isFinite(e.lon)).slice(0,30);
-   if(!list.length){status.textContent="Is dafa nearby masjid listing nahi mili. Google Maps par bhi check karein.";out.innerHTML='<p><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/masjid/">Google Maps par masjid dhoondein</a></p>';return}
-   status.textContent=`5 km ke andar listed masajid: ${list.length}. Jamaat time aksar online listed nahi hota.`;
-   out.innerHTML=list.map(m=>`<div class="nameitem"><b>${escapeHtml(m.name)}</b><div class="small">${escapeHtml(m.tags["addr:street"]||m.tags["addr:suburb"]||"Address listing available nahi")}</div><div class="small">Jamaat: listing mein waqt available nahi — masjid se confirm karein.</div><a target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=${m.lat},${m.lon}">Google Maps mein raasta</a></div>`).join("");
-  }catch(e){status.textContent="Masjid list online load nahi hui. Internet check karein ya Google Maps kholein.";out.innerHTML='<p><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/masjid/">Google Maps par qareebi masajid</a></p>'}
- },()=>{status.textContent="Location permission allow karein, phir dobara try karein."},{enableHighAccuracy:true,timeout:12000,maximumAge:60000});
-}
+document.getElementById("nameCount").textContent="Kul naam: "+names.length+" / 99";
+document.getElementById("names").innerHTML=names.map((n,i)=>`<div class="nameitem"><span class="pill">${i+1}</span><div class="namearabic">${n[0]}</div><b>${n[1]}</b><div>${n[2]}</div><div dir="rtl" style="text-align:right">${n[3]}</div></div>`).join("");
+async function findMosques(){const status=document.getElementById("mosqueStatus"),out=document.getElementById("mosques"),map=document.getElementById("mosqueMap");status.textContent="Location aur masjid listings dhoondh rahe hain…";out.innerHTML="";map.innerHTML="";
+if(!navigator.geolocation){status.textContent="Location available nahi. Neeche Google Maps kholein.";showMapFallback(map);return}
+navigator.geolocation.getCurrentPosition(async pos=>{const lat=pos.coords.latitude,lon=pos.coords.longitude;map.innerHTML=`<iframe title="Qareebi masjid ka map" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=${lon-0.04}%2C${lat-0.04}%2C${lon+0.04}%2C${lat+0.04}&layer=mapnik&marker=${lat}%2C${lon}"></iframe><p><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/masjid/@${lat},${lon},14z">Google Maps mein masjid kholein</a></p>`;
+const query=`[out:json][timeout:20];(node["amenity"="place_of_worship"]["religion"="muslim"](around:5000,${lat},${lon});way["amenity"="place_of_worship"]["religion"="muslim"](around:5000,${lat},${lon});relation["amenity"="place_of_worship"]["religion"="muslim"](around:5000,${lat},${lon}););out center tags;`;
+try{const res=await fetch("https://overpass-api.de/api/interpreter",{method:"POST",headers:{"Content-Type":"application/x-www-form-urlencoded;charset=UTF-8"},body:"data="+encodeURIComponent(query)});if(!res.ok)throw new Error("network");const data=await res.json();const list=(data.elements||[]).map(e=>({name:e.tags?.name||e.tags?.["name:en"]||"Masjid (naam listed nahi)",lat:e.lat??e.center?.lat,lon:e.lon??e.center?.lon,tags:e.tags||{}})).filter(e=>Number.isFinite(e.lat)&&Number.isFinite(e.lon)).slice(0,30);
+if(!list.length){status.textContent="Is dafa masjid ki listing nahi mili. Google Maps par check karein.";out.innerHTML='<p>Online list na milne ka matlab yeh nahi ke masjid nahi hai.</p>';return}
+status.textContent=`5 km ke andar listed masajid: ${list.length}. Jamaat ke waqt ko masjid se confirm karein.`;
+out.innerHTML=list.map(m=>`<div class="nameitem"><b>${escapeHtml(m.name)}</b><div class="small">${escapeHtml(m.tags["addr:street"]||m.tags["addr:suburb"]||"Address listing available nahi")}</div><a target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=${m.lat},${m.lon}">Rasta dekhein</a></div>`).join("");
+}catch(e){status.textContent="Online masjid list load nahi hui. Internet check karein ya Google Maps kholein.";out.innerHTML='<p><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/masjid/">Google Maps par qareebi masjid dhoondein</a></p>'}
+},()=>{status.textContent="Location permission allow karein, phir dobara try karein.";showMapFallback(map)},{enableHighAccuracy:true,timeout:15000,maximumAge:60000})}
+function showMapFallback(map){map.innerHTML='<p><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/masjid/">Google Maps par qareebi masjid dhoondein</a></p>'}
 document.getElementById("today").textContent=new Date().toLocaleDateString("hi-IN",{weekday:"long",year:"numeric",month:"long",day:"numeric"});
 showTimes();chooseDhikr(0);
 </script>
