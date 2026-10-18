@@ -1,2 +1,110 @@
 <!DOCTYPE html>
-<html lang="hi"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#064e3b"><title>Noor-e-Deen</title><style>*{box-sizing:border-box}body{margin:0;background:#f0fdf4;color:#12352b;font-family:Arial,sans-serif}header{background:#065f46;color:white;padding:25px 18px;border-radius:0 0 25px 25px}main{padding:16px;max-width:600px;margin:auto}.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.card,.panel{background:white;border-radius:16px;padding:16px;margin-top:12px;text-align:center}.emoji{font-size:30px}button{background:#047857;color:white;border:0;border-radius:10px;padding:10px;margin:4px}#count{font-size:36px;color:#047857}</style></head><body><header><h1>☪ Noor-e-Deen</h1><p>Namaz • Tasbeeh • Dua • Deen</p></header><main><div class="panel"><h2>🕌 Namaz aur Jamaat</h2><div id="times">Fajr 05:00 · Zuhr 13:15 · Asr 16:30 · Maghrib 18:00 · Isha 20:00</div><button onclick="editTimes()">Jamaat timing badlein</button></div><div class="grid"><div class="card"><div class="emoji">📿</div><h3>Digital Tasbeeh</h3><div id="count">0</div><button onclick="add()">+1</button><button onclick="resetCount()">Reset</button></div><div class="card"><div class="emoji">🤲</div><h3>Dua aur Azkar</h3><button onclick="showDua()">Dua dekhein</button></div><div class="card"><div class="emoji">🧭</div><h3>Qibla Direction</h3><button onclick="qibla()">Qibla kholein</button></div><div class="card"><div class="emoji">🔔</div><h3>Namaz Reminder</h3><button onclick="remind()">Reminder</button></div><div class="card"><div class="emoji">📅</div><h3>Islamic Calendar</h3><button onclick="calendar()">Aaj ki tareekh</button></div><div class="card"><div class="emoji">☪️</div><h3>Allah ke 99 naam</h3><button onclick="names()">Naam dekhein</button></div></div><div class="panel" id="result">Assalamu Alaikum! Noor-e-Deen mein aapka swagat hai.</div></main><script>let count=Number(localStorage.getItem('tasbeeh')||0);document.getElementById('count').textContent=count;function add(){count++;localStorage.setItem('tasbeeh',count);document.getElementById('count').textContent=count}function resetCount(){count=0;localStorage.setItem('tasbeeh',0);document.getElementById('count').textContent=0}function editTimes(){let t=prompt('Fajr, Zuhr, Asr, Maghrib, Isha ke waqt comma se likhein','05:00,13:15,16:30,18:00,20:00');if(t){let a=t.split(',');if(a.length===5)document.getElementById('times').textContent=['Fajr','Zuhr','Asr','Maghrib','Isha'].map((n,i)=>n+' '+a[i].trim()).join(' · ');else alert('Paanch waqt comma se likhein.')}}function showDua(){document.getElementById('result').textContent='SubhanAllahi wa bihamdihi, SubhanAllahil Azeem. Allah ka zikr karein aur apni dua maangein.'}function qibla(){document.getElementById('result').innerHTML='Qibla ke liye <button onclick="window.open(\'https://qiblafinder.withgoogle.com/\',\'_blank\')">Qibla Finder kholein</button>'}function remind(){if('Notification' in window)Notification.requestPermission().then(p=>alert(p==='granted'?'Permission mili; reminder scheduling abhi configure nahi hai.':'Notification permission check karein.'));else alert('Notifications supported nahi hain.')}function calendar(){document.getElementById('result').textContent='Aaj: '+new Date().toLocaleDateString('en-GB')+'. Hijri tareekh phone ke Islamic calendar se check karein.'}function names(){document.getElementById('result').textContent='Ar-Rahman (Meherban), Ar-Raheem (Rahm Karne Wala), Al-Malik (Badshah), Al-Quddus (Paak), As-Salam (Salamati Dene Wala).'}</script></body></html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Noor-e-Deen</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f1f7f2;color:#173d2b}
+header{background:#075c3b;color:white;padding:24px 16px;text-align:center}
+header h1{margin:0 0 8px}
+main{padding:16px;max-width:600px;margin:auto}
+.card{background:white;padding:17px;margin:12px 0;border-radius:14px;box-shadow:0 2px 8px #0001}
+button{background:#087447;color:white;border:0;border-radius:9px;padding:12px;margin:5px 0;cursor:pointer;font-size:15px}
+input{padding:10px;width:100%;margin:6px 0;border:1px solid #bbb;border-radius:7px}
+.prayer{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid #eee}
+.small{color:#617469;font-size:13px}
+</style>
+</head>
+<body>
+<header>
+<h1>☪ Noor-e-Deen</h1>
+<p>Namaz • Tasbeeh • Dua • Qibla</p>
+<div id="today"></div>
+</header>
+<main>
+<div class="card">
+<h3>🕌 Local Masjid Jamaat Timings</h3>
+<div id="times"></div>
+<button onclick="editTimes()">Jamaat Timing Badlein</button>
+<p class="small">Apni masjid ke mutabiq waqt set karein.</p>
+</div>
+
+<div class="card">
+<h3>📿 Digital Tasbeeh</h3>
+<h2 id="count">0</h2>
+<button onclick="addCount()">Tasbeeh +1</button>
+<button onclick="resetCount()">Reset</button>
+</div>
+
+<div class="card">
+<h3>🧭 Qibla Finder</h3>
+<p>Qibla direction dekhne ke liye neeche dabayein.</p>
+<button onclick="openQibla()">Qibla Finder Kholein</button>
+</div>
+
+<div class="card">
+<h3>🤲 Dua</h3>
+<p id="dua">Allahumma inni as'alukal-'afwa wal-'afiyah.</p>
+<button onclick="nextDua()">Agli Dua</button>
+</div>
+
+<div class="card">
+<h3>🔔 Reminder</h3>
+<p>Namaz ke liye reminder set karne ki suvidha.</p>
+<button onclick="setReminder()">Reminder Permission</button>
+<p id="reminderStatus" class="small"></p>
+</div>
+
+<div class="card">
+<h3>📿 Allah ke Asma-ul-Husna</h3>
+<p>Ar-Rahman — Nihayat Meherban</p>
+<p>Ar-Raheem — Bahut Raham Karne Wala</p>
+<p>Al-Malik — Haqeeqi Badshah</p>
+<p class="small">Yahan kuch naam diye gaye hain.</p>
+</div>
+</main>
+<script>
+const defaults={Fajr:"05:00",Zuhr:"13:15",Asr:"16:30",Maghrib:"Sunset",Isha:"20:00"};
+let saved={};
+try{saved=JSON.parse(localStorage.getItem("noorTimes")||"{}")}catch(e){}
+let timings={...defaults,...saved};
+function showTimes(){
+ document.getElementById("times").innerHTML=Object.entries(timings).map(([n,t])=>`<div class="prayer"><b>${n}</b><span>${t}</span></div>`).join("");
+}
+function editTimes(){
+ let updated={};
+ for(let n of Object.keys(timings)){
+  let v=prompt(n+" ka jamaat time:",timings[n]);
+  if(v===null)return;
+  updated[n]=v.trim()||timings[n];
+ }
+ timings=updated;
+ try{localStorage.setItem("noorTimes",JSON.stringify(timings))}catch(e){}
+ showTimes();
+ alert("Jamaat timings save ho gayi.");
+}
+let count=0;
+function addCount(){count++;document.getElementById("count").textContent=count}
+function resetCount(){if(confirm("Tasbeeh reset karein?")){count=0;document.getElementById("count").textContent=count}}
+function openQibla(){window.location.href="https://qiblafinder.withgoogle.com/"}
+const duas=[
+"Allahumma inni as'alukal-'afwa wal-'afiyah.",
+"Rabbighfir li wa liwalidayya.",
+"SubhanAllahi wa bihamdihi.",
+"Astaghfirullaha wa atubu ilayh."
+];
+let duaIndex=0;
+function nextDua(){duaIndex=(duaIndex+1)%duas.length;document.getElementById("dua").textContent=duas[duaIndex]}
+function setReminder(){
+ const s=document.getElementById("reminderStatus");
+ if("Notification" in window){
+  Notification.requestPermission().then(p=>{s.textContent=p==="granted"?"Permission mil gayi. Background reminder abhi set nahi hai.":"Notification permission nahi mili."}).catch(()=>{s.textContent="Is WebView mein notification permission available nahi hai."});
+ }else{s.textContent="Is app mein notification permission available nahi hai."}
+}
+document.getElementById("today").textContent=new Date().toLocaleDateString("hi-IN",{dateStyle:"full"});
+showTimes();
+</script>
+</body>
+</html>
