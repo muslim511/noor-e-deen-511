@@ -137,7 +137,7 @@ function showTimes(){document.getElementById("times").innerHTML=Object.entries(t
 function editTimes(){const n=document.getElementById("editPrayer").value;const v=document.getElementById("editTime").value;if(!v){alert("Waqt select karein.");return}timings[n]=v;try{localStorage.setItem("noorTimes",JSON.stringify(timings))}catch(e){}showTimes();alert(n+" ka jamaat waqt save ho gaya.");}
 function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
 const dhikr=[["Allahu Akbar","اللّٰهُ أَكْبَرُ"],["SubhanAllah","سُبْحَانَ اللّٰهِ"],["Alhamdulillah","الْحَمْدُ لِلّٰهِ"]];
-let selected=0,counts=[0,0,0];try{counts=JSON.parse(localStorage.getItem("noorCounts")||"[0,0,0]")}catch(e){}
+let selected=0,counts=[0,0,0];try{const saved=JSON.parse(localStorage.getItem("noorCounts")||"[0,0,0]");if(Array.isArray(saved))counts=[0,1,2].map(i=>Number.isFinite(Number(saved[i]))?Number(saved[i]):0)}catch(e){counts=[0,0,0]}
 function chooseDhikr(i){selected=i;document.getElementById("dhikrTitle").textContent=dhikr[i][0];document.getElementById("arabicDhikr").textContent=dhikr[i][1];document.getElementById("count").textContent=counts[i]}
 function addCount(){counts[selected]++;document.getElementById("count").textContent=counts[selected];try{localStorage.setItem("noorCounts",JSON.stringify(counts))}catch(e){}}
 function resetCount(){if(confirm("Is zikr ka count zero karein?")){counts[selected]=0;chooseDhikr(selected);try{localStorage.setItem("noorCounts",JSON.stringify(counts))}catch(e){}}}
@@ -153,7 +153,11 @@ const duas=[
 ["غُفْرَانَكَ","اے اللہ! میں تجھ سے بخشش چاہتا ہوں۔","Ghufranak. — Bathroom se nikalne ke baad (Abu Dawud/Tirmidhi)"],
 ["بِسْمِ اللَّهِ تَوَكَّلْتُ عَلَى اللَّهِ، لَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللَّهِ","اللہ کے نام سے، اللہ پر بھروسا؛ اللہ کے سوا نہ طاقت ہے نہ قوت۔","Bismillahi tawakkaltu ‘alallah, la hawla wa la quwwata illa billah. — Ghar se nikalne ki dua"]
 ];let duaIndex=0;
-function nextDua(){duaIndex=(duaIndex+1)%duas.length;document.getElementById("duaArabic").textContent=duas[duaIndex][0];document.getElementById("duaUrdu").textContent=duas[duaIndex][1];document.getElementById("duaRoman").textContent="Roman Urdu: "+duas[duaIndex][2]}
+function nextDua(){
+ duaIndex=(duaIndex+1)%duas.length;
+ const a=document.getElementById("duaArabic"),u=document.getElementById("duaUrdu"),r=document.getElementById("duaRoman");
+ if(a&&u&&r){a.textContent=duas[duaIndex][0];u.textContent=duas[duaIndex][1];r.textContent="Roman Urdu / hawala: "+duas[duaIndex][2]}
+}
 function showQibla(){
  const box=document.getElementById("qiblaResult");box.classList.remove("hidden");
  const txt=document.getElementById("qiblaText"),arrow=document.getElementById("qiblaArrow");
@@ -177,7 +181,12 @@ const names=[["الرَّحْمَٰنُ","Ar-Rahman","Nihayat meherban","نہا�
  wala","برداشت فرمانے والا"],["الْعَظِيمُ","Al-Azim","Azmat wala","عظمت والا"],["الْغَفُورُ","Al-Ghafur","Bohat bakhshne wala","بہت بخشنے والا"],["الشَّكُورُ","Ash-Shakur","Qadr farmane wala","قدر فرمانے والا"],["الْعَلِيُّ","Al-Ali","Sab se buland","سب سے بلند"],["الْكَبِيرُ","Al-Kabir","Bohat bada","بہت بڑا"],["الْحَفِيظُ","Al-Hafiz","Hifazat farmane wala","حفاظت فرمانے والا"],["الْمُقِيتُ","Al-Muqit","Quwwat aur rizq dene wala","قوت اور رزق دینے والا"],["الْحَسِيبُ","Al-Hasib","Hisab lene wala, kafi","حساب لینے والا، کافی"],["الْجَلِيلُ","Al-Jalil","Jalal wala","جلال والا"],["الْكَرِيمُ","Al-Karim","Buzurgi aur karam wala","بزرگی اور کرم والا"],["الرَّقِيبُ","Ar-Raqib","Nigrani karne wala","نگرانی کرنے والا"],["الْمُجِيبُ","Al-Mujib","Dua qabool farmane wala","دعا قبول فرمانے والا"],["الْوَاسِعُ","Al-Wasi","Wusat wala","وسعت والا"],["الْحَكِيمُ","Al-Hakim","Hikmat wala","حکمت والا"],["الْوَدُودُ","Al-Wadud","Mohabbat farmane wala","محبت فرمانے والا"],["الْمَجِيدُ","Al-Majid","Buzurgi wala","بزرگی والا"],["الْبَاعِثُ","Al-Ba’ith","Dobara uthाने والا","دوبارہ اٹھانے والا"],["الشَّهِيدُ","Ash-Shahid","Har cheez par gawah","ہر چیز پر گواہ"],["الْحَقُّ","Al-Haqq","Haqeeqi, sachcha","حقیقی، سچا"],["الْوَكِيلُ","Al-Wakil","Kaarsaaz","کارساز"],["الْقَوِيُّ","Al-Qawiyy","Nihayat taqatwar","نہایت طاقتور"],["الْمَتِينُ","Al-Matin","Mazboot quwwat wala","مضبوط قوت والا"],["الْوَلِيُّ","Al-Waliyy","Dost aur madadgar","دوست اور مددگار"],["الْحَمِيدُ","Al-Hamid","Tareef ke laiq","تعریف کے لائق"],["الْمُحْصِي","Al-Muhsi","Sab ka shumar rakhne wala","سب کا شمار رکھنے والا"],["الْمُبْدِئُ","Al-Mubdi","Pehli baar paida karne wala","پہلی بار پیدا کرنے والا"],["الْمُعِيدُ","Al-Mu’id","Dobara paida karne wala","دوبارہ پیدا کرنے والا"],["الْمُحْيِي","Al-Muhyi","Zindagi dene wala","زندگی دینے والا"],["الْمُمِيتُ","Al-Mumit","Maut dene wala","موت دینے والا"],["الْحَيُّ","Al-Hayy","Hamesha zinda","ہمیشہ زندہ"],["الْقَيُّومُ","Al-Qayyum","Sab ko qayam rakhne wala","سب کو قائم رکھنے والا"],["الْوَاجِدُ","Al-Wajid","Sab kuch paane wala","
 سب کچھ پانے والا"],["الْمَاجِدُ","Al-Maajid","Buzurgi aur sharaf wala","بزرگی اور شرف والا"],["الْوَاحِدُ","Al-Wahid","Yakta","یکتا"],["الْأَحَدُ","Al-Ahad","Aik aur yakta","ایک اور یکتا"],["الصَّمَدُ","As-Samad","Be-niyaz, sab ka sahara","بے نیاز، سب کا سہارا"],["الْقَادِرُ","Al-Qadir","Qudrat wala","قدرت والا"],["الْمُقْتَدِرُ","Al-Muqtadir","Mukammal ikhtiyar wala","مکمل اختیار والا"],["الْمُقَدِّمُ","Al-Muqaddim","Aage karne wala","آگے کرنے والا"],["الْمُؤَخِّرُ","Al-Mu’akhkhir","Peechhe karne wala","پیچھے کرنے والا"],["الْأَوَّلُ","Al-Awwal","Sab se pehla","سب سے پہلا"],["الْآخِرُ","Al-Akhir","Sab se aakhir","سب سے آخر"],["الظَّاهِرُ","Az-Zahir","Zahir","ظاہر"],["الْبَاطِنُ","Al-Batin","Posheeda, har baat se waqif","پوشیدہ، ہر بات سے واقف"],["الْوَالِي","Al-Wali","Hukmran aur sarparast","حکمران اور سرپرست"],["الْمُتَعَالِي","Al-Muta’ali","Nihayat buland","نہایت بلند"],["الْبَرُّ","Al-Barr","Bohat ehsan karne wala","بہت احسان کرنے والا"],["التَّوَّابُ","At-Tawwab","Tauba qabool karne wala","توبہ قبول کرنے والا"],["الْمُنْتَقِمُ","Al-Muntaqim","Adl ke mutabiq saza dene wala","عدل کے مطابق سزا دینے والا"],["الْعَفُوُّ","Al-Afuww","Maaf farmane wala","معاف فرمانے والا"],["الرَّؤُوفُ","Ar-Ra’uf","Nihayat shafeeq","نہایت شفیق"],["مَالِكُ الْمُلْكِ","Malik-ul-Mulk","Saari saltanat ka malik","ساری سلطنت کا مالک"],["ذُو الْجَلَالِ وَالْإِكْرَامِ","Dhul-Jalali wal-Ikram","Jalal aur ikram wala","جلال اور اکرام والا"],["الْمُقْسِطُ","Al-Muqsit","Insaf karne wala","انصاف کرنے والا"],["الْجَامِعُ","Al-Jami","Jama karne wala","جمع کرنے والا"],["الْغَنِيُّ","Al-Ghani","Be-niyaz","بے نیاز"],["الْمُغْنِي","Al-Mughni","Ghani karne wala","غنی کرنے والا"],["الْمَانِعُ","Al-Mani","Rokne wala","روکنے والا"],["الضَّارُّ","Ad-Darr","Hikmat se nuqsan aane dene wala","حکمت سے نقصان آنے دینے والا"],["النَّافِعُ","An-Nafi","Nafa dene wala","نفع دینے والا"],["النُّورُ","An-Nur","Noor wala","نور والا"],["الْهَادِي","Al-Hadi","Hidayat dene wala","ہدایت دینے والا"],["الْبَدِيعُ","Al-Badi","Be-misaal paida karne wala","بے مثال پیدا کرنے والا
 "],["الْبَاقِي","Al-Baqi","Hamesha baqi","ہمیشہ باقی"],["الْوَارِثُ","Al-Warith","Sab ka waris","سب کا وارث"],["الرَّشِيدُ","Ar-Rashid","Seedhi raah dikhane wala","سیدھی راہ دکھانے والا"],["الصَّبُورُ","As-Sabur","Nihayat sabr wala","نہایت صبر والا"]];
-document.getElementById("nameCount").textContent="Kul naam: "+names.length+" / 99";document.getElementById("names").innerHTML=names.map((n,i)=>`<div class="nameitem"><span class="pill">${i+1}</span><div class="namearabic">${n[0]}</div><b>${n[1]}</b><div>${n[2]}</div><div dir="rtl" style="text-align:right">${n[3]}</div></div>`).join("");
+function renderNames(){
+ const count=document.getElementById("nameCount"),container=document.getElementById("names");
+ if(!count||!container)return;
+ count.textContent="Kul naam: "+names.length+" / 99";
+ container.innerHTML=names.map((n,i)=>`<div class="nameitem"><span class="pill">${i+1}</span><div class="namearabic">${n[0]}</div><b>${n[1]}</b><div>${n[2]}</div><div dir="rtl" style="text-align:right">${n[3]}</div></div>`).join("");
+}
 async function findMosques(){
  const status=document.getElementById("mosqueStatus"),out=document.getElementById("mosques");
  status.textContent="Location aur masjid listings dhoondh rahe hain…";out.innerHTML="";
@@ -196,8 +205,13 @@ async function findMosques(){
   }catch(e){status.textContent="Masjid list online load nahi hui. Internet check karein ya Google Maps kholein.";out.innerHTML='<p><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/masjid/">Google Maps par qareebi masajid</a></p>'}
  },()=>{status.textContent="Location permission allow karein, phir dobara try karein."},{enableHighAccuracy:true,timeout:12000,maximumAge:60000});
 }
-document.getElementById("today").textContent=new Date().toLocaleDateString("hi-IN",{weekday:"long",year:"numeric",month:"long",day:"numeric"});
-showTimes();chooseDhikr(0);
+function initNoorApp(){
+ try{const d=document.getElementById("today");if(d)d.textContent=new Date().toLocaleDateString("hi-IN",{weekday:"long",year:"numeric",month:"long",day:"numeric"});}catch(e){}
+ try{showTimes();}catch(e){console.error("Jamaat timing:",e)}
+ try{chooseDhikr(0);}catch(e){console.error("Tasbeeh:",e)}
+ try{renderNames();}catch(e){console.error("Asma-ul-Husna:",e)}
+}
+if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",initNoorApp);}else{initNoorApp();}
 </script>
 </body>
 </html>
